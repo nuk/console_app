@@ -2,6 +2,8 @@ package org.unbiquitous.console_app;
 
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import org.unbiquitous.uos.core.InitialProperties;
 import org.unbiquitous.uos.core.adaptabitilyEngine.Gateway;
 import org.unbiquitous.uos.core.applicationManager.CallContext;
@@ -15,11 +17,14 @@ public class UserDriver implements UosDriver {
 	private String name;
 	private UpDriver driver;
 	public UserDialog nameDialog = new UserDialog();
+
+	public UserDriver() {
+		driver = new UpDriver("uos.user");
+		driver.addService("userInfo");
+	}
 	
 	public void init(Gateway gateway, InitialProperties properties,
 			String instanceId) {
-		driver = new UpDriver("uos.user");
-		driver.addService("userInfo");
 		name = nameDialog.requestUserName();
 	}
 	
@@ -40,6 +45,6 @@ public class UserDriver implements UosDriver {
 
 class UserDialog {
 	public String requestUserName(){
-		return null;
+		return JOptionPane.showInputDialog("Who are you?");
 	}
 }

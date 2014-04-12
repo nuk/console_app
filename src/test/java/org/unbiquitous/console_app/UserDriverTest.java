@@ -18,7 +18,6 @@ public class UserDriverTest {
 	}
 	
 	@Test public void userDriverHasAProperInterface(){
-		driver.init(null, null, null);
 		UpDriver driverDefinition = new UpDriver("uos.user");
 		driverDefinition.addService("userInfo");
 		assertThat(driver.getDriver()).isEqualTo(driverDefinition);

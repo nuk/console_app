@@ -24,7 +24,6 @@ public class ConsoleDriverTest {
 			.addParameter("message", ParameterType.MANDATORY);
 		definition.addService("askInput")
 			.addParameter("message", ParameterType.MANDATORY);
-		driver.init(null, null, null);
 		assertThat(driver.getDriver()).isEqualTo(definition);
 	}
 	

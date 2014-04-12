@@ -24,13 +24,16 @@ public class ConsoleDriver implements UosDriver{
 	ConsoleFrame window = new ConsoleFrame();
 	private UpDriver definition;
 
-	public void init(Gateway gateway, InitialProperties properties,
-			String instanceId) {
+	public ConsoleDriver() {
 		definition = new UpDriver("uos.console");
 		definition.addService("showMessage")
 			.addParameter("message", ParameterType.MANDATORY);
 		definition.addService("askInput")
 			.addParameter("message", ParameterType.MANDATORY);
+	}
+	
+	public void init(Gateway gateway, InitialProperties properties,
+			String instanceId) {
 		window.setVisible(true);
 	}
 	
